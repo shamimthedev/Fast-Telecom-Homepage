@@ -1,0 +1,437 @@
+/* All Common CSS Start  */
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+ul,
+ol {
+  list-style-type: none;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  color: #000;
+}
+.container {
+  width: 1366px;
+  margin: 0 auto;
+}
+/* All Common CSS End  */
+/* Header Part CSS Start */
+/* 1. Top Header */
+.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding-block: 0.625rem;
+}
+.top-header .left p {
+  color: rgba(0, 0, 0, 0.4);
+}
+.top-header .right {
+  display: flex;
+  align-items: center;
+  color: #000;
+  gap: 2rem;
+}
+.top-header .right .location,
+.mobile {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.top-header .right .location {
+  cursor: pointer;
+}
+.top-header-divider {
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/* 2. Main Header  */
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 0;
+}
+.nav-logo img {
+  width: 9.75rem;
+}
+.navlink-with-btn,
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 4.375rem;
+}
+.nav-list {
+  gap: 1.875rem;
+}
+.nav-link {
+  color: #000;
+  font-weight: 500;
+  transition: 0.4s;
+}
+.nav-link:hover {
+  color: #ff4d4d;
+}
+.nav-btn {
+  padding: 0.875rem 3rem;
+  border-radius: 5px;
+  border: 0;
+  background-color: #ff4d4d;
+  color: #fff;
+  cursor: pointer;
+  border: 2px solid #ff4d4d;
+  font-weight: 500;
+  transition: 0.4s;
+}
+.nav-btn:hover {
+  background-color: transparent;
+  color: #ff4d4d;
+}
+/* Header Part CSS End */
+
+/* Hero Part CSS Start */
+#hero-section {
+  margin-bottom: 3rem;
+}
+.hero-content {
+  background-color: #c3ffc2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8.5rem;
+}
+.hero-img {
+  margin-top: 1.75rem;
+  margin-bottom: -5px;
+}
+.hero-img img {
+  width: 100%;
+}
+.hero-text p {
+  font-weight: 500;
+}
+.hero-text h1 {
+  font-weight: 700;
+  font-size: 2.625rem;
+}
+.hero-content-box {
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.hero-box {
+  position: relative;
+  width: 12.5rem;
+  height: 13.125rem;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 1.25rem;
+}
+.hero-right-arrow {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.box-inner-text {
+  margin-top: 5rem;
+}
+.box-inner-text img {
+  width: 25px;
+  height: 25px;
+}
+.box-inner-text h4 {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+.box-inner-text p {
+  font-size: 0.75rem;
+  color: rgba(0, 0, 0, 0.5);
+}
+/* Hero Part CSS End */
+
+/* Tariflar Part CSS Start */
+#tariflar-section {
+  margin-bottom: 6.25rem;
+}
+.tariflar-heading {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.tariflar-content-box {
+  display: flex;
+  align-items: center;
+  margin-top: 1.875rem;
+  gap: 1.875rem;
+  margin-bottom: 50px;
+}
+.tariflar-box {
+  height: 350px;
+  width: 320px;
+  border-radius: 0.625rem;
+  padding: 2.5rem 1.875rem;
+  position: relative;
+}
+.tariflar-box h3 {
+  font-weight: 700;
+  font-size: 1.5625rem;
+  margin-bottom: 2rem;
+}
+.tariflar-box .box-inner-text {
+  margin-top: 0.9rem;
+}
+.box-inner-text .inner-txt {
+  font-weight: 500;
+  font-size: 0.75rem;
+  color: rgba(0, 0, 0, 0.5);
+}
+.inner-txt-big span {
+  font-weight: 700;
+  font-size: 1.875rem;
+  color: #ff4d4d;
+}
+.tariflar-img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.img-3 {
+  bottom: 4.375rem;
+}
+.img-4 {
+  bottom: 2rem;
+}
+.box-1 {
+  background-color: #c3ffc2;
+}
+.box-2 {
+  background-color: #c2fff8;
+}
+.box-3 {
+  background-color: #c2e2ff;
+}
+.box-4 {
+  background-color: #faffc2;
+}
+/* Tariflar Part CSS End */
+
+/* Yuridik Part CSS Start */
+#yuridik-section {
+  margin: 2.5rem 0;
+  margin-bottom: 50px;
+}
+.yuridik-wrapper {
+  display: flex;
+  /* align-items: center; */
+  gap: 2.5rem;
+}
+.yuridik-content h3 {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 0.9375rem;
+}
+.yuridik-content p {
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.7);
+  line-height: 1.375rem;
+  margin-bottom: 3.125rem;
+}
+.yuridik-inner-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+.yuridik-inner-content {
+  display: flex;
+  gap: 0.875rem;
+}
+.yuridik-inner-content img {
+  width: 60px;
+  height: 60px;
+  margin-top: 5px;
+}
+.yuridik-inner-txt h4 {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+.yuridik-inner-txt p {
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.5);
+}
+.yuridik-btn a {
+  padding: 1rem 4rem;
+  background-color: #ff4c4c;
+  border-radius: 5px;
+  font-weight: 500;
+  color: #fff;
+}
+/* Yuridik Part CSS End */
+
+/* Nega Part CSS Start */
+#nega-section {
+  margin-top: 6.25rem;
+  margin-bottom: 3.125rem;
+}
+.nega-heading h3 {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.nega-content-box {
+  display: flex;
+  align-items: center;
+  gap: 8.125rem;
+  padding: 3.5rem 0;
+}
+.nega-box {
+  display: flex;
+  gap: 1rem;
+}
+.nega-box img {
+  width: 80px;
+  height: 80px;
+}
+.nega-box-txt h5 {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+.nega-box-txt p {
+  font-weight: 500;
+  font-size: 0.8125rem;
+  color: rgba(0, 0, 0, 0.5);
+}
+/* Nega Part CSS End */
+
+/* Qadar Part CSS Start */
+#qadar-section {
+  margin-bottom: 6.25rem;
+}
+.yuridik-content h3 span {
+  color: #ed1c24;
+}
+/* Qadar Part CSS End */
+
+/* Download Part CSS Start */
+#download-section {
+  margin-bottom: 3.125rem;
+}
+.download-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11.25rem;
+  background-color: #c3ffc2;
+}
+.download-content {
+  text-align: center;
+}
+.download-logo {
+  max-width: 10.9375rem;
+  margin-inline: auto;
+  margin-bottom: 2.1875rem;
+}
+.download-logo img {
+  width: 155px;
+}
+.download-logo p {
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+.download-text {
+  margin-bottom: 2.5rem;
+}
+.download-text p {
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+.download-store {
+  gap: 1.25rem;
+  display: flex;
+  justify-content: center;
+}
+.download-content-img img {
+  max-width: 395px;
+  margin-bottom: -8px;
+}
+/* Download Part CSS End */
+
+/* Footer Part CSS Start */
+#footer-section {
+  background-color: #3d3d3d;
+}
+.footer-content-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 18.75rem;
+  padding: 3.75rem 0;
+}
+.footer-content-box h5 {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: #fff;
+  margin-bottom: 0.9375rem;
+}
+.footer-content-box p,
+.footer-box-inner-txt i,
+span {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.9375rem;
+}
+.footer-box-inner-txt {
+  display: flex;
+  gap: 0.9375rem;
+  align-items: center;
+}
+.footer-social-icons {
+  display: flex;
+  align-items: center;
+  gap: 1.5625rem;
+}
+.footer-divider {
+  height: 1px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.footer-copyright {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+.footer-copyright p {
+  font-weight: 500;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+.footer-credit {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.footer-credit p {
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+/* Footer Part CSS End */
