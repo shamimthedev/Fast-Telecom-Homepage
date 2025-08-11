@@ -1,39 +1,99 @@
-/* All Common CSS Start  */
-* {
+/* Reset */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   outline: 0;
   box-sizing: border-box;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-  padding: 0;
+body {
+  font-family: "Poppins", sans-serif;
+  color: #000;
+  overflow-x: hidden;
+  background-color: #fff;
 }
 a {
   text-decoration: none;
   display: inline-block;
+  color: inherit;
+  cursor: pointer;
 }
 ul,
 ol {
-  list-style-type: none;
+  list-style: none;
 }
-body {
-  font-family: "Poppins", sans-serif;
-  color: #000;
-}
+
+/* Container */
 .container {
-  width: 1366px;
+  width: 100%;
+  max-width: 1366px;
   margin: 0 auto;
+  padding: 0 20px;
 }
-/* All Common CSS End  */
-/* Header Part CSS Start */
-/* 1. Top Header */
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+.slide-in-right {
+  animation: slideInRight 0.8s ease forwards;
+}
+.slide-in-left {
+  animation: slideInLeft 0.8s ease forwards;
+}
+
+/* Header */
+#header-section {
+  position: sticky;
+  top: 0;
+  z-index: 1100;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition: padding 0.3s ease, box-shadow 0.3s ease;
+  padding: 15px 0;
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+#header-section.shrink {
+  padding: 7px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
 .top-header {
   display: flex;
   align-items: center;
@@ -41,77 +101,206 @@ body {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 0.875rem;
-  padding-block: 0.625rem;
+  padding-block: 0.5rem;
+  color: rgba(0, 0, 0, 0.55);
+  letter-spacing: 0.03em;
+  user-select: none;
 }
-.top-header .left p {
-  color: rgba(0, 0, 0, 0.4);
-}
+
 .top-header .right {
   display: flex;
   align-items: center;
-  color: #000;
   gap: 2rem;
+  color: #000;
 }
-.top-header .right .location,
-.mobile {
+
+.top-header .location,
+.top-header .mobile {
   display: flex;
   align-items: center;
   gap: 0.25rem;
 }
-.top-header .right .location {
+
+.top-header .location {
   cursor: pointer;
 }
+
+.top-header .location p {
+  font-weight: 600;
+  color: #444;
+  user-select: none;
+}
+
 .top-header-divider {
   height: 1px;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 0.2rem 0 0.5rem 0;
 }
-/* 2. Main Header  */
+
+/* Main Header */
 .main-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.25rem 0;
+  padding: 1rem 0 1.2rem;
 }
+
 .nav-logo img {
-  width: 9.75rem;
+  width: 160px;
+  height: auto;
+  transition: transform 0.3s ease;
 }
+
+.nav-logo img:hover,
+.nav-logo img:focus {
+  transform: scale(1.05);
+  outline: none;
+}
+
 .navlink-with-btn,
 .nav-list {
   display: flex;
   align-items: center;
-  gap: 4.375rem;
+  gap: 3.5rem;
 }
+
 .nav-list {
-  gap: 1.875rem;
+  gap: 2rem;
 }
+
 .nav-link {
-  color: #000;
-  font-weight: 500;
-  transition: 0.4s;
+  color: #222;
+  font-weight: 600;
+  font-size: 1rem;
+  position: relative;
+  padding: 6px 0 8px;
+  transition: color 0.3s ease;
+  outline-offset: 4px;
 }
-.nav-link:hover {
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #ff4d4d;
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.nav-link:hover,
+.nav-link:focus {
   color: #ff4d4d;
+  outline: none;
 }
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+  width: 100%;
+}
+
 .nav-btn {
   padding: 0.875rem 3rem;
-  border-radius: 5px;
-  border: 0;
+  border-radius: 6px;
+  border: 2px solid #ff4d4d;
   background-color: #ff4d4d;
   color: #fff;
+  font-weight: 600;
   cursor: pointer;
-  border: 2px solid #ff4d4d;
-  font-weight: 500;
-  transition: 0.4s;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
-.nav-btn:hover {
+
+.nav-btn:hover,
+.nav-btn:focus {
   background-color: transparent;
   color: #ff4d4d;
+  box-shadow: 0 0 10px #ff4d4daa;
+  outline: none;
 }
-/* Header Part CSS End */
 
-/* Hero Part CSS Start */
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.75rem;
+  cursor: pointer;
+  color: #222;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu-btn:hover,
+.mobile-menu-btn:focus {
+  color: #ff4d4d;
+  outline: none;
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .navlink-with-btn {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 320px;
+    height: 100vh;
+    background-color: #fff;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 4.5rem 2rem 2rem 2rem;
+    transition: right 0.3s ease;
+    box-shadow: -6px 0 20px rgba(0, 0, 0, 0.12);
+    z-index: 1050;
+    overflow-y: auto;
+  }
+
+  .navlink-with-btn.active {
+    right: 0;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 1.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .nav-btn {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 260px;
+    text-align: center;
+  }
+
+  .close-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.75rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ff4d4d;
+    transition: color 0.3s ease;
+  }
+
+  .close-menu:hover,
+  .close-menu:focus {
+    color: #e60000;
+    outline: none;
+  }
+}
+
+/* Header Scroll Effect - handled dynamically */
+
+/* Hero Part (minimal changes) */
 #hero-section {
   margin-bottom: 3rem;
+  overflow: hidden;
 }
 .hero-content {
   background-color: #c3ffc2;
@@ -119,319 +308,161 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8.5rem;
+  padding: 3rem 0;
+  flex-wrap: wrap;
 }
 .hero-img {
   margin-top: 1.75rem;
   margin-bottom: -5px;
+  animation: slideInLeft 0.8s ease;
+  max-width: 450px;
+  flex: 1 1 360px;
 }
 .hero-img img {
   width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.5s ease;
+}
+.hero-img img:hover,
+.hero-img img:focus {
+  transform: scale(1.05);
+  outline: none;
+}
+.hero-text {
+  animation: slideInRight 0.8s ease;
+  flex: 1 1 400px;
+  padding: 0 20px;
+  max-width: 600px;
 }
 .hero-text p {
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: #4a4a4a;
 }
 .hero-text h1 {
   font-weight: 700;
-  font-size: 2.625rem;
+  font-size: 2.75rem;
+  margin: 1rem 0 1.5rem 0;
+  line-height: 1.15;
+  color: #111;
 }
 .hero-content-box {
   margin-top: 2.5rem;
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 .hero-box {
   position: relative;
-  width: 12.5rem;
+  width: 13.5rem;
   height: 13.125rem;
-  background-color: #fff;
-  border-radius: 5px;
-  padding: 1.25rem;
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.hero-box:hover,
+.hero-box:focus-within {
+  transform: translateY(-10px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.14);
+  outline: none;
 }
 .hero-right-arrow {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  transition: transform 0.3s ease;
+  width: 20px;
+  height: 20px;
+  filter: brightness(0.6);
+}
+.hero-box:hover .hero-right-arrow,
+.hero-box:focus-within .hero-right-arrow {
+  transform: translateX(5px);
+  filter: brightness(1);
 }
 .box-inner-text {
-  margin-top: 5rem;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 .box-inner-text img {
-  width: 25px;
-  height: 25px;
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
 }
 .box-inner-text h4 {
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
+  color: #222;
 }
 .box-inner-text p {
-  font-size: 0.75rem;
-  color: rgba(0, 0, 0, 0.5);
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.55);
 }
-/* Hero Part CSS End */
 
-/* Tariflar Part CSS Start */
-#tariflar-section {
-  margin-bottom: 6.25rem;
+/* Responsive adjustments for Hero */
+@media (max-width: 992px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+  .hero-img,
+  .hero-text {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+  .hero-content-box {
+    justify-content: center;
+  }
 }
-.tariflar-heading {
-  font-weight: 700;
-  font-size: 1.5rem;
+@media (max-width: 576px) {
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  .hero-box {
+    width: 100%;
+    max-width: 300px;
+  }
 }
-.tariflar-content-box {
-  display: flex;
-  align-items: center;
-  margin-top: 1.875rem;
-  gap: 1.875rem;
-  margin-bottom: 50px;
-}
-.tariflar-box {
-  height: 350px;
-  width: 320px;
-  border-radius: 0.625rem;
-  padding: 2.5rem 1.875rem;
-  position: relative;
-}
-.tariflar-box h3 {
-  font-weight: 700;
-  font-size: 1.5625rem;
-  margin-bottom: 2rem;
-}
-.tariflar-box .box-inner-text {
-  margin-top: 0.9rem;
-}
-.box-inner-text .inner-txt {
-  font-weight: 500;
-  font-size: 0.75rem;
-  color: rgba(0, 0, 0, 0.5);
-}
-.inner-txt-big span {
-  font-weight: 700;
-  font-size: 1.875rem;
-  color: #ff4d4d;
-}
-.tariflar-img {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-.img-3 {
-  bottom: 4.375rem;
-}
-.img-4 {
-  bottom: 2rem;
-}
-.box-1 {
-  background-color: #c3ffc2;
-}
-.box-2 {
-  background-color: #c2fff8;
-}
-.box-3 {
-  background-color: #c2e2ff;
-}
-.box-4 {
-  background-color: #faffc2;
-}
-/* Tariflar Part CSS End */
 
-/* Yuridik Part CSS Start */
-#yuridik-section {
-  margin: 2.5rem 0;
-  margin-bottom: 50px;
-}
-.yuridik-wrapper {
-  display: flex;
-  /* align-items: center; */
-  gap: 2.5rem;
-}
-.yuridik-content h3 {
-  font-weight: 700;
-  font-size: 1.25rem;
-  margin-bottom: 0.9375rem;
-}
-.yuridik-content p {
-  font-weight: 500;
-  color: rgba(0, 0, 0, 0.7);
-  line-height: 1.375rem;
-  margin-bottom: 3.125rem;
-}
-.yuridik-inner-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-}
-.yuridik-inner-content {
-  display: flex;
-  gap: 0.875rem;
-}
-.yuridik-inner-content img {
-  width: 60px;
-  height: 60px;
-  margin-top: 5px;
-}
-.yuridik-inner-txt h4 {
-  font-weight: 600;
-  font-size: 1.25rem;
-}
-.yuridik-inner-txt p {
-  font-weight: 500;
-  font-size: 0.875rem;
-  color: rgba(0, 0, 0, 0.5);
-}
-.yuridik-btn a {
-  padding: 1rem 4rem;
-  background-color: #ff4c4c;
-  border-radius: 5px;
-  font-weight: 500;
-  color: #fff;
-}
-/* Yuridik Part CSS End */
-
-/* Nega Part CSS Start */
-#nega-section {
-  margin-top: 6.25rem;
-  margin-bottom: 3.125rem;
-}
-.nega-heading h3 {
-  font-weight: 700;
-  font-size: 1.5rem;
-}
-.nega-content-box {
-  display: flex;
-  align-items: center;
-  gap: 8.125rem;
-  padding: 3.5rem 0;
-}
-.nega-box {
-  display: flex;
-  gap: 1rem;
-}
-.nega-box img {
-  width: 80px;
-  height: 80px;
-}
-.nega-box-txt h5 {
-  font-weight: 700;
-  font-size: 1.25rem;
-}
-.nega-box-txt p {
-  font-weight: 500;
-  font-size: 0.8125rem;
-  color: rgba(0, 0, 0, 0.5);
-}
-/* Nega Part CSS End */
-
-/* Qadar Part CSS Start */
-#qadar-section {
-  margin-bottom: 6.25rem;
-}
-.yuridik-content h3 span {
-  color: #ed1c24;
-}
-/* Qadar Part CSS End */
-
-/* Download Part CSS Start */
-#download-section {
-  margin-bottom: 3.125rem;
-}
-.download-wrapper {
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: #ff4d4d;
+  color: white;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 11.25rem;
-  background-color: #c3ffc2;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 77, 77, 0.35);
+  z-index: 1200;
 }
-.download-content {
-  text-align: center;
+.back-to-top:hover,
+.back-to-top:focus {
+  background-color: #e60000;
+  outline: none;
+  transform: translateY(-5px);
 }
-.download-logo {
-  max-width: 10.9375rem;
-  margin-inline: auto;
-  margin-bottom: 2.1875rem;
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
 }
-.download-logo img {
-  width: 155px;
-}
-.download-logo p {
-  font-size: 0.875rem;
-  color: rgba(0, 0, 0, 0.6);
-}
-.download-text {
-  margin-bottom: 2.5rem;
-}
-.download-text p {
-  font-weight: 600;
-  font-size: 1.125rem;
-}
-.download-store {
-  gap: 1.25rem;
-  display: flex;
-  justify-content: center;
-}
-.download-content-img img {
-  max-width: 395px;
-  margin-bottom: -8px;
-}
-/* Download Part CSS End */
-
-/* Footer Part CSS Start */
-#footer-section {
-  background-color: #3d3d3d;
-}
-.footer-content-wrapper {
-  display: flex;
-  justify-content: center;
-  gap: 18.75rem;
-  padding: 3.75rem 0;
-}
-.footer-content-box h5 {
-  font-weight: 700;
-  font-size: 1.125rem;
-  color: #fff;
-  margin-bottom: 0.9375rem;
-}
-.footer-content-box p,
-.footer-box-inner-txt i,
-span {
-  font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 0.9375rem;
-}
-.footer-box-inner-txt {
-  display: flex;
-  gap: 0.9375rem;
-  align-items: center;
-}
-.footer-social-icons {
-  display: flex;
-  align-items: center;
-  gap: 1.5625rem;
-}
-.footer-divider {
-  height: 1px;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.2);
-}
-.footer-copyright {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 0;
-}
-.footer-copyright p {
-  font-weight: 500;
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.7);
-}
-.footer-credit {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-.footer-credit p {
-  font-weight: 600;
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.7);
-}
-/* Footer Part CSS End */
