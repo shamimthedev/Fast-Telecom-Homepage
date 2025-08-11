@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Fast Telecom</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,863 +12,104 @@
       rel="stylesheet"
     />
     <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- My CSS -->
-    <style>
-      /* All Common CSS Start  */
-      * {
-        margin: 0;
-        padding: 0;
-        outline: 0;
-        box-sizing: border-box;
-      }
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      p {
-        margin: 0;
-        padding: 0;
-      }
-      a {
-        text-decoration: none;
-        display: inline-block;
-      }
-      ul,
-      ol {
-        list-style-type: none;
-      }
-      body {
-        font-family: "Poppins", sans-serif;
-        color: #000;
-        overflow-x: hidden;
-      }
-      .container {
-        width: 100%;
-        max-width: 1366px;
-        margin: 0 auto;
-        padding: 0 20px;
-      }
-      /* All Common CSS End  */
-      
-      /* Animations */
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      
-      @keyframes slideInRight {
-        from { opacity: 0; transform: translateX(50px); }
-        to { opacity: 1; transform: translateX(0); }
-      }
-      
-      @keyframes slideInLeft {
-        from { opacity: 0; transform: translateX(-50px); }
-        to { opacity: 1; transform: translateX(0); }
-      }
-      
-      .fade-in {
-        animation: fadeIn 0.8s ease forwards;
-      }
-      
-      .slide-in-right {
-        animation: slideInRight 0.8s ease forwards;
-      }
-      
-      .slide-in-left {
-        animation: slideInLeft 0.8s ease forwards;
-      }
-      
-      /* Header Part CSS Start */
-      #header-section {
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        background-color: #fff;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-      }
-      
-      /* 1. Top Header */
-      .top-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-family: "Montserrat", sans-serif;
-        font-weight: 600;
-        font-size: 0.875rem;
-        padding-block: 0.625rem;
-        transition: all 0.3s ease;
-      }
-      .top-header .left p {
-        color: rgba(0, 0, 0, 0.4);
-      }
-      .top-header .right {
-        display: flex;
-        align-items: center;
-        color: #000;
-        gap: 2rem;
-      }
-      .top-header .right .location,
-      .mobile {
-        display: flex;
-        align-items: center;
-        gap: 0.25rem;
-      }
-      .top-header .right .location {
-        cursor: pointer;
-      }
-      .top-header-divider {
-        height: 1px;
-        background-color: rgba(0, 0, 0, 0.2);
-      }
-      
-      /* 2. Main Header  */
-      .main-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1.25rem 0;
-      }
-      .nav-logo img {
-        width: 9.75rem;
-        transition: all 0.3s ease;
-      }
-      .navlink-with-btn,
-      .nav-list {
-        display: flex;
-        align-items: center;
-        gap: 4.375rem;
-      }
-      .nav-list {
-        gap: 1.875rem;
-      }
-      .nav-link {
-        color: #000;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        position: relative;
-      }
-      .nav-link::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background-color: #ff4d4d;
-        transition: width 0.3s ease;
-      }
-      .nav-link:hover {
-        color: #ff4d4d;
-      }
-      .nav-link:hover::after {
-        width: 100%;
-      }
-      .nav-btn {
-        padding: 0.875rem 3rem;
-        border-radius: 5px;
-        border: 0;
-        background-color: #ff4d4d;
-        color: #fff;
-        cursor: pointer;
-        border: 2px solid #ff4d4d;
-        font-weight: 500;
-        transition: all 0.3s ease;
-      }
-      .nav-btn:hover {
-        background-color: transparent;
-        color: #ff4d4d;
-      }
-      
-      /* Mobile Menu Button */
-      .mobile-menu-btn {
-        display: none;
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        cursor: pointer;
-        color: #000;
-      }
-      
-      /* Header Part CSS End */
-      
-      /* Hero Part CSS Start */
-      #hero-section {
-        margin-bottom: 3rem;
-        overflow: hidden;
-      }
-      .hero-content {
-        background-color: #c3ffc2;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8.5rem;
-      }
-      .hero-img {
-        margin-top: 1.75rem;
-        margin-bottom: -5px;
-        animation: slideInLeft 0.8s ease;
-      }
-      .hero-img img {
-        width: 100%;
-        transition: transform 0.5s ease;
-      }
-      .hero-img img:hover {
-        transform: scale(1.05);
-      }
-      .hero-text {
-        animation: slideInRight 0.8s ease;
-      }
-      .hero-text p {
-        font-weight: 500;
-      }
-      .hero-text h1 {
-        font-weight: 700;
-        font-size: 2.625rem;
-        margin: 1rem 0;
-      }
-      .hero-content-box {
-        margin-top: 2.5rem;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        flex-wrap: wrap;
-      }
-      .hero-box {
-        position: relative;
-        width: 12.5rem;
-        height: 13.125rem;
-        background-color: #fff;
-        border-radius: 5px;
-        padding: 1.25rem;
-        transition: all 0.3s ease;
-        cursor: pointer;
-      }
-      .hero-box:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-      }
-      .hero-right-arrow {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        transition: transform 0.3s ease;
-      }
-      .hero-box:hover .hero-right-arrow {
-        transform: translateX(5px);
-      }
-      .box-inner-text {
-        margin-top: 5rem;
-      }
-      .box-inner-text img {
-        width: 25px;
-        height: 25px;
-      }
-      .box-inner-text h4 {
-        font-weight: 700;
-        font-size: 1.25rem;
-        margin: 0.5rem 0;
-      }
-      .box-inner-text p {
-        font-size: 0.75rem;
-        color: rgba(0, 0, 0, 0.5);
-      }
-      /* Hero Part CSS End */
-      
-      /* Tariflar Part CSS Start */
-      #tariflar-section {
-        margin-bottom: 6.25rem;
-      }
-      .tariflar-heading {
-        font-weight: 700;
-        font-size: 1.5rem;
-        text-align: center;
-        margin-bottom: 1.875rem;
-      }
-      .tariflar-content-box {
-        display: flex;
-        align-items: center;
-        margin-top: 1.875rem;
-        gap: 1.875rem;
-        margin-bottom: 50px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .tariflar-box {
-        height: 350px;
-        width: 320px;
-        border-radius: 0.625rem;
-        padding: 2.5rem 1.875rem;
-        position: relative;
-        transition: all 0.3s ease;
-        cursor: pointer;
-      }
-      .tariflar-box:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-      }
-      .tariflar-box h3 {
-        font-weight: 700;
-        font-size: 1.5625rem;
-        margin-bottom: 2rem;
-      }
-      .tariflar-box .box-inner-text {
-        margin-top: 0.9rem;
-      }
-      .box-inner-text .inner-txt {
-        font-weight: 500;
-        font-size: 0.75rem;
-        color: rgba(0, 0, 0, 0.5);
-      }
-      .inner-txt-big span {
-        font-weight: 700;
-        font-size: 1.875rem;
-        color: #ff4d4d;
-      }
-      .tariflar-img {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        transition: all 0.3s ease;
-      }
-      .tariflar-box:hover .tariflar-img {
-        transform: scale(1.1);
-      }
-      .img-3 {
-        bottom: 4.375rem;
-      }
-      .img-4 {
-        bottom: 2rem;
-      }
-      .box-1 {
-        background-color: #c3ffc2;
-      }
-      .box-2 {
-        background-color: #c2fff8;
-      }
-      .box-3 {
-        background-color: #c2e2ff;
-      }
-      .box-4 {
-        background-color: #faffc2;
-      }
-      /* Tariflar Part CSS End */
-      
-      /* Yuridik Part CSS Start */
-      #yuridik-section {
-        margin: 2.5rem 0;
-        margin-bottom: 50px;
-      }
-      .yuridik-wrapper {
-        display: flex;
-        gap: 2.5rem;
-        align-items: center;
-      }
-      .yuridik-content {
-        flex: 1;
-      }
-      .yuridik-content h3 {
-        font-weight: 700;
-        font-size: 1.25rem;
-        margin-bottom: 0.9375rem;
-      }
-      .yuridik-content p {
-        font-weight: 500;
-        color: rgba(0, 0, 0, 0.7);
-        line-height: 1.375rem;
-        margin-bottom: 3.125rem;
-      }
-      .yuridik-inner-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 3rem;
-        margin-bottom: 1.5rem;
-      }
-      .yuridik-inner-content {
-        display: flex;
-        gap: 0.875rem;
-        transition: all 0.3s ease;
-      }
-      .yuridik-inner-content:hover {
-        transform: translateX(10px);
-      }
-      .yuridik-inner-content img {
-        width: 60px;
-        height: 60px;
-        margin-top: 5px;
-        transition: all 0.3s ease;
-      }
-      .yuridik-inner-content:hover img {
-        transform: scale(1.1);
-      }
-      .yuridik-inner-txt h4 {
-        font-weight: 600;
-        font-size: 1.25rem;
-      }
-      .yuridik-inner-txt p {
-        font-weight: 500;
-        font-size: 0.875rem;
-        color: rgba(0, 0, 0, 0.5);
-      }
-      .yuridik-btn a {
-        padding: 1rem 4rem;
-        background-color: #ff4c4c;
-        border-radius: 5px;
-        font-weight: 500;
-        color: #fff;
-        transition: all 0.3s ease;
-        display: inline-block;
-      }
-      .yuridik-btn a:hover {
-        background-color: #e60000;
-        transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3);
-      }
-      .yuridik-img {
-        flex: 1;
-        animation: fadeIn 1s ease;
-      }
-      .yuridik-img img {
-        width: 100%;
-        transition: transform 0.5s ease;
-      }
-      .yuridik-img img:hover {
-        transform: scale(1.03);
-      }
-      /* Yuridik Part CSS End */
-      
-      /* Nega Part CSS Start */
-      #nega-section {
-        margin-top: 6.25rem;
-        margin-bottom: 3.125rem;
-      }
-      .nega-heading {
-        text-align: center;
-        margin-bottom: 3.5rem;
-      }
-      .nega-heading h3 {
-        font-weight: 700;
-        font-size: 1.5rem;
-      }
-      .nega-content-box {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8.125rem;
-        padding: 3.5rem 0;
-        flex-wrap: wrap;
-      }
-      .nega-box {
-        display: flex;
-        gap: 1rem;
-        max-width: 300px;
-        transition: all 0.3s ease;
-      }
-      .nega-box:hover {
-        transform: translateY(-10px);
-      }
-      .nega-box img {
-        width: 80px;
-        height: 80px;
-        transition: all 0.3s ease;
-      }
-      .nega-box:hover img {
-        transform: rotate(10deg) scale(1.1);
-      }
-      .nega-box-txt h5 {
-        font-weight: 700;
-        font-size: 1.25rem;
-        margin-bottom: 0.5rem;
-      }
-      .nega-box-txt p {
-        font-weight: 500;
-        font-size: 0.8125rem;
-        color: rgba(0, 0, 0, 0.5);
-      }
-      /* Nega Part CSS End */
-      
-      /* Qadar Part CSS Start */
-      #qadar-section {
-        margin-bottom: 6.25rem;
-      }
-      .yuridik-content h3 span {
-        color: #ed1c24;
-      }
-      /* Qadar Part CSS End */
-      
-      /* Download Part CSS Start */
-      #download-section {
-        margin-bottom: 3.125rem;
-      }
-      .download-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 11.25rem;
-        background-color: #c3ffc2;
-        padding: 3rem 0;
-      }
-      .download-content {
-        text-align: center;
-        animation: fadeIn 0.8s ease;
-      }
-      .download-logo {
-        max-width: 10.9375rem;
-        margin-inline: auto;
-        margin-bottom: 2.1875rem;
-      }
-      .download-logo img {
-        width: 155px;
-        transition: transform 0.3s ease;
-      }
-      .download-logo img:hover {
-        transform: scale(1.1);
-      }
-      .download-logo p {
-        font-size: 0.875rem;
-        color: rgba(0, 0, 0, 0.6);
-      }
-      .download-text {
-        margin-bottom: 2.5rem;
-      }
-      .download-text p {
-        font-weight: 600;
-        font-size: 1.125rem;
-      }
-      .download-store {
-        gap: 1.25rem;
-        display: flex;
-        justify-content: center;
-      }
-      .download-store img {
-        transition: all 0.3s ease;
-        cursor: pointer;
-      }
-      .download-store img:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-      }
-      .download-content-img {
-        animation: slideInRight 0.8s ease;
-      }
-      .download-content-img img {
-        max-width: 395px;
-        margin-bottom: -8px;
-        transition: transform 0.5s ease;
-      }
-      .download-content-img img:hover {
-        transform: scale(1.05);
-      }
-      /* Download Part CSS End */
-      
-      /* Footer Part CSS Start */
-      #footer-section {
-        background-color: #3d3d3d;
-      }
-      .footer-content-wrapper {
-        display: flex;
-        justify-content: space-between;
-        gap: 2rem;
-        padding: 3.75rem 0;
-        flex-wrap: wrap;
-      }
-      .footer-content-box {
-        flex: 1;
-        min-width: 250px;
-      }
-      .footer-content-box h5 {
-        font-weight: 700;
-        font-size: 1.125rem;
-        color: #fff;
-        margin-bottom: 0.9375rem;
-      }
-      .footer-content-box p,
-      .footer-box-inner-txt i,
-      .footer-box-inner-txt span {
-        font-size: 0.875rem;
-        color: rgba(255, 255, 255, 0.7);
-        margin-bottom: 0.9375rem;
-        transition: all 0.3s ease;
-      }
-      .footer-content-box p:hover {
-        color: #fff;
-        transform: translateX(5px);
-      }
-      .footer-box-inner-txt {
-        display: flex;
-        gap: 0.9375rem;
-        align-items: center;
-        margin-bottom: 0.9375rem;
-      }
-      .footer-box-inner-txt i {
-        font-size: 1rem;
-      }
-      .footer-social-icons {
-        display: flex;
-        align-items: center;
-        gap: 1.5625rem;
-      }
-      .footer-social-icons img {
-        transition: all 0.3s ease;
-        cursor: pointer;
-      }
-      .footer-social-icons img:hover {
-        transform: translateY(-5px);
-      }
-      .footer-divider {
-        height: 1px;
-        width: 100%;
-        background-color: rgba(255, 255, 255, 0.2);
-      }
-      .footer-copyright {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0.5rem 0;
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
-      .footer-copyright p {
-        font-weight: 500;
-        font-size: 0.75rem;
-        color: rgba(255, 255, 255, 0.7);
-      }
-      .footer-credit {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-      }
-      .footer-credit p {
-        font-weight: 600;
-        font-size: 0.75rem;
-        color: rgba(255, 255, 255, 0.7);
-      }
-      /* Footer Part CSS End */
-      
-      /* Back to Top Button */
-      .back-to-top {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 50px;
-        height: 50px;
-        background-color: #ff4d4d;
-        color: white;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 1000;
-        box-shadow: 0 4px 12px rgba(255, 77, 77, 0.3);
-      }
-      .back-to-top:hover {
-        background-color: #e60000;
-        transform: translateY(-5px);
-      }
-      .back-to-top.show {
-        opacity: 1;
-        visibility: visible;
-      }
-      
-      /* Responsive CSS */
-      @media (max-width: 1200px) {
-        .container {
-          max-width: 1140px;
-        }
-        .hero-content {
-          gap: 4rem;
-        }
-        .download-wrapper {
-          gap: 5rem;
-        }
-      }
-      
-      @media (max-width: 992px) {
-        .container {
-          max-width: 960px;
-        }
-        .hero-content {
-          flex-direction: column;
-          text-align: center;
-        }
-        .hero-img {
-          margin-top: 0;
-          margin-bottom: 2rem;
-        }
-        .hero-content-box {
-          justify-content: center;
-        }
-        .yuridik-wrapper {
-          flex-direction: column;
-        }
-        .yuridik-img {
-          order: -1;
-          margin-bottom: 2rem;
-        }
-        .download-wrapper {
-          flex-direction: column;
-          gap: 2rem;
-        }
-        .footer-content-wrapper {
-          justify-content: space-around;
-        }
-      }
-      
-      @media (max-width: 768px) {
-        .container {
-          max-width: 720px;
-        }
-        .top-header .right {
-          gap: 1rem;
-        }
-        .mobile-menu-btn {
-          display: block;
-        }
-        .navlink-with-btn {
-          position: fixed;
-          top: 0;
-          right: -300px;
-          width: 300px;
-          height: 100vh;
-          background-color: #fff;
-          flex-direction: column;
-          justify-content: start;
-          padding-top: 100px;
-          transition: right 0.3s ease;
-          box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-          z-index: 999;
-        }
-        .navlink-with-btn.active {
-          right: 0;
-        }
-        .nav-list {
-          flex-direction: column;
-          gap: 1.5rem;
-          margin-bottom: 2rem;
-        }
-        .nav-btn {
-          margin: 0 auto;
-        }
-        .close-menu {
-          position: absolute;
-          top: 20px;
-          right: 20px;
-          font-size: 1.5rem;
-          background: none;
-          border: none;
-          cursor: pointer;
-        }
-        .tariflar-content-box {
-          gap: 1rem;
-        }
-        .tariflar-box {
-          width: calc(50% - 0.5rem);
-        }
-        .nega-content-box {
-          gap: 2rem;
-        }
-        .footer-content-wrapper {
-          gap: 2rem;
-          justify-content: space-between;
-        }
-        .footer-content-box {
-          flex: 1 1 calc(50% - 1rem);
-        }
-      }
-      
-      @media (max-width: 576px) {
-        .container {
-          max-width: 540px;
-        }
-        .top-header {
-          flex-direction: column;
-          gap: 0.5rem;
-        }
-        .hero-text h1 {
-          font-size: 2rem;
-        }
-        .hero-box {
-          width: 100%;
-          max-width: 300px;
-        }
-        .tariflar-box {
-          width: 100%;
-        }
-        .yuridik-inner-wrapper {
-          flex-direction: column;
-          gap: 1.5rem;
-        }
-        .nega-box {
-          flex-direction: column;
-          text-align: center;
-        }
-        .footer-content-box {
-          flex: 1 1 100%;
-        }
-        .footer-copyright {
-          flex-direction: column;
-          text-align: center;
-          gap: 0.5rem;
-        }
-      }
-    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <!-- Header Part Start -->
-    <header id="header-section">
+    <header id="header-section" role="banner">
       <div class="container">
-        <div class="top-header">
+        <div class="top-header" aria-label="Top header info">
           <div class="left">
             <p>09:41 | Tashkent</p>
           </div>
           <div class="right">
-            <div class="location">
-              <img src="images/header-location-icon.svg" alt="location-icon" />
+            <div
+              class="location"
+              role="button"
+              tabindex="0"
+              aria-haspopup="listbox"
+              aria-expanded="false"
+              aria-label="Select language"
+            >
+              <img src="images/header-location-icon.svg" alt="Location icon" />
               <p>O‘zbekcha</p>
               <img
                 src="images/header-down-arrow-icon.svg"
-                alt="down-arrow-icon"
+                alt="Dropdown arrow"
               />
             </div>
             <div class="mobile">
-              <img src="images/call-icon.svg" alt="call-icon" />
-              <p>+998 97 565 71 73</p>
+              <img src="images/call-icon.svg" alt="Call icon" />
+              <p>
+                <a href="tel:+998975657173" class="phone-link"
+                  >+998 97 565 71 73</a
+                >
+              </p>
             </div>
           </div>
         </div>
-        <div class="top-header-divider"></div>
+        <div
+          class="top-header-divider"
+          role="separator"
+          aria-hidden="true"
+        ></div>
         <div class="main-header">
           <div class="nav-logo">
-            <a href="#"><img src="images/logo.png" alt="Fast Telecom logo" /></a>
+            <a href="#" aria-label="Fast Telecom homepage"
+              ><img src="images/logo.png" alt="Fast Telecom logo"
+            /></a>
           </div>
-          <button class="mobile-menu-btn" id="mobile-menu-btn">
-            <i class="fas fa-bars"></i>
+          <button
+            class="mobile-menu-btn"
+            id="mobile-menu-btn"
+            aria-label="Open mobile menu"
+            aria-controls="navlink-with-btn"
+            aria-expanded="false"
+          >
+            <i class="fas fa-bars" aria-hidden="true"></i>
           </button>
-          <div class="navlink-with-btn" id="navlink-with-btn">
-            <button class="close-menu" id="close-menu">
-              <i class="fas fa-times"></i>
+          <nav
+            class="navlink-with-btn"
+            id="navlink-with-btn"
+            role="navigation"
+            aria-label="Primary navigation"
+          >
+            <button
+              class="close-menu"
+              id="close-menu"
+              aria-label="Close mobile menu"
+            >
+              <i class="fas fa-times" aria-hidden="true"></i>
             </button>
             <ul class="nav-list">
               <li><a class="nav-link" href="#tariflar-section">Tariflar</a></li>
               <li><a class="nav-link" href="#to-lov-section">To'lov</a></li>
-              <li><a class="nav-link" href="#xizmatlar-section">Xizmatlar</a></li>
-              <li><a class="nav-link" href="#biznes-uchun-section">Biznes uchun</a></li>
-              <li><a class="nav-link" href="#bog-lanish-section">Bog'lanish</a></li>
+              <li>
+                <a class="nav-link" href="#xizmatlar-section">Xizmatlar</a>
+              </li>
+              <li>
+                <a class="nav-link" href="#biznes-uchun-section"
+                  >Biznes uchun</a
+                >
+              </li>
+              <li>
+                <a class="nav-link" href="#bog-lanish-section">Bog'lanish</a>
+              </li>
             </ul>
             <button class="nav-btn">Buyurtma</button>
-          </div>
+          </nav>
         </div>
       </div>
     </header>
     <!-- Header Part End -->
-    
+
     <!-- Hero Part Start -->
     <section id="hero-section">
       <div class="container">
@@ -925,7 +166,7 @@
       </div>
     </section>
     <!-- Hero Part End -->
-    
+
     <!-- Tariflar Part Start -->
     <section id="tariflar-section">
       <div class="container">
@@ -1009,7 +250,7 @@
       </div>
     </section>
     <!-- Tariflar Part End -->
-    
+
     <!-- Yuridik Part Start -->
     <section id="yuridik-section">
       <div class="container">
@@ -1065,7 +306,7 @@
       </div>
     </section>
     <!-- Yuridik Part End -->
-    
+
     <!-- Nega Part Start -->
     <section id="nega-section">
       <div class="container">
@@ -1098,7 +339,7 @@
       </div>
     </section>
     <!-- Nega Part End -->
-    
+
     <!-- Qadar Part Start -->
     <section id="qadar-section">
       <div class="container">
@@ -1157,7 +398,7 @@
       </div>
     </section>
     <!-- Qadar Part End -->
-    
+
     <!-- Download Part Start -->
     <section id="download-section">
       <div class="container">
@@ -1182,7 +423,7 @@
       </div>
     </section>
     <!-- Download Part End -->
-    
+
     <!-- Footer Part Start -->
     <footer id="footer-section">
       <div class="container">
@@ -1225,100 +466,23 @@
           <p>© All rights reserved 2021</p>
           <div class="footer-credit">
             <p>Designed by</p>
-            <img src="images/footer-developer-icon.png" alt="developer-icon">
+            <img src="images/footer-developer-icon.png" alt="developer-icon" />
           </div>
         </div>
       </div>
     </footer>
     <!-- Footer Part End -->
-    
+
     <!-- Back to Top Button -->
-    <div class="back-to-top" id="back-to-top">
-      <i class="fas fa-arrow-up"></i>
+    <div
+      class="back-to-top"
+      id="back-to-top"
+      role="button"
+      aria-label="Back to top"
+    >
+      <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </div>
-    
-    <script>
-      // Mobile Menu Toggle
-      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-      const navlinkWithBtn = document.getElementById('navlink-with-btn');
-      const closeMenu = document.getElementById('close-menu');
-      
-      mobileMenuBtn.addEventListener('click', () => {
-        navlinkWithBtn.classList.add('active');
-      });
-      
-      closeMenu.addEventListener('click', () => {
-        navlinkWithBtn.classList.remove('active');
-      });
-      
-      // Close mobile menu when clicking on a link
-      const navLinks = document.querySelectorAll('.nav-link');
-      navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          navlinkWithBtn.classList.remove('active');
-        });
-      });
-      
-      // Smooth scrolling for navigation links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            window.scrollTo({
-              top: target.offsetTop - 100,
-              behavior: 'smooth'
-            });
-          }
-        });
-      });
-      
-      // Header scroll effect
-      window.addEventListener('scroll', () => {
-        const header = document.getElementById('header-section');
-        if (window.scrollY > 100) {
-          header.style.padding = '5px 0';
-          header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
-        } else {
-          header.style.padding = '';
-          header.style.boxShadow = '';
-        }
-      });
-      
-      // Back to top button
-      const backToTopBtn = document.getElementById('back-to-top');
-      
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-          backToTopBtn.classList.add('show');
-        } else {
-          backToTopBtn.classList.remove('show');
-        }
-      });
-      
-      backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      });
-      
-      // Animation on scroll
-      const animateOnScroll = () => {
-        const elements = document.querySelectorAll('.hero-img, .hero-text, .yuridik-content, .yuridik-img, .nega-box');
-        
-        elements.forEach(element => {
-          const elementPosition = element.getBoundingClientRect().top;
-          const screenPosition = window.innerHeight / 1.2;
-          
-          if (elementPosition < screenPosition) {
-            element.classList.add('fade-in');
-          }
-        });
-      };
-      
-      window.addEventListener('scroll', animateOnScroll);
-      window.addEventListener('load', animateOnScroll);
-    </script>
+
+    <script src="js/script.js"></script>
   </body>
 </html>
